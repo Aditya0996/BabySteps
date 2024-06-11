@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='color.css') }}">
+</head>
+
+<div class="container">
+    <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="card">
+        <header class="card-header">
+          <div class="is-flex is-justify-content-space-between is-align-items-center">
+            <h1 class="card-header-title">Hi {{ session.username }}! Welcome to Baby Steps!</h1>
+          </div>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <div class="buttons is-centered">
+              <a class="button is-primary is-fullwidth btn" href="/practice">
+                Practice
+              </a>
+              <p class="word">Practice writing the alphabet</p>
+            </div>
+            <br>
+            {% if session.role == "admin" %}
+            <div class="buttons is-centered">
+              <a class="button is-primary is-fullwidth btn " href="/add-data">
+                Add Data
+              </a>
+              <p class="word">Improve the model by adding data</p>
+            </div>
+            <br>
+            {% endif %}
+            <div class="buttons is-centered">
+              <a class="button is-primary is-fullwidth btn " href="/watch-tutorial">
+                Watch Tutorial
+              </a>
+              <p class="word">Learn how to write uppercase alphabets</p>
+            </div>
+            <br>
+            <div class="buttons is-centered">
+              <a class="button is-primary is-fullwidth btn" href="/attempt-quiz">
+                Attempt Quiz
+              </a>
+              <p class="word">Take a quiz to see how much you know</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
